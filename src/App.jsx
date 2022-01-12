@@ -1,3 +1,24 @@
+import React from 'react'
+
+
+
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  
+
+
+
+
+  return (
+    <div>
+      <button> Undo </button>
+      <button> Redo </button>
+      <input 
+      type="date"
+      name="date"
+      //value= {date}
+      /> 
+      {/* <div> {date} </div> */}
+    </div>
+  )
 }
