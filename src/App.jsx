@@ -61,15 +61,31 @@ const handleRedo = () =>{
    setCurrentDate(value)
    //setDate to the prev of the name and value
    //we are taking that same value and popping into the end of this array. We are trying to track what index we are at because that index is how we nav. 
-   setDate((prevState)=>{ return[ ...prevState, value]
-   })
-   //set the index to the length of that date
-   //so we just incriminating the index because we want to be able to follow where it is at
-   setIndex(date.length)
 
-   //if condition, then setIndex to date.length
+   setDate((prevState)=> {return[ ...prevState.slice(0, (index + 1)), value, ...prevState.slice((index + 1), date.length + 1)] })
+
+   //keep this in mind when changing state based on saved state
+   setIndex((prevState) => prevState + 1)
+
+
+   //Forming idea
+  //if condition, then setIndex to date.length
    // if index is less than the current length, then add 1 else setIndex
    //else set index to + 1
+
+//Idea 1
+   // setDate((prevState)=>{ return[ ...prevState.slice(0, (index + 1), date.length + 1), value]
+   //})
+  //setIndex(date.length + 1)
+
+//Idea 2
+  //  if(currentDate){
+  //  setIndex(date.length)
+  //  } else {
+  //    setIndex(value.slice(...date.length),
+  //    [index].join = value.join(''))
+  //  }
+
 
 
 
