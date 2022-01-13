@@ -6,6 +6,9 @@ const [date, setDate] = useState([]);
 const [index, setIndex] = useState(-1)
 const [currentDate, setCurrentDate] = useState('')
 
+//allows the most current date to run, reset everytime a re-render is triggered
+// let currentDate = date[index]
+
     const handleSaveDate = (e) =>{
     //setting the name and value to the e.target
     //pulling off the value from event (which is a date as a string because it is coming from the input field)
@@ -48,5 +51,5 @@ const [currentDate, setCurrentDate] = useState('')
   //    setCurrentDate(date [index]);
   //  }
   }
-  return [date, index, setIndex, currentDate, setCurrentDate, handleSaveDate]
+  return {date, index, setIndex, currentDate, setCurrentDate, handleSaveDate}
 }
