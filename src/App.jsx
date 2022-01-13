@@ -67,6 +67,12 @@ const handleRedo = () =>{
    //so we just incriminating the index because we want to be able to follow where it is at
    setIndex(date.length)
 
+   //if condition, then setIndex to date.length
+   // if index is less than the current length, then add 1 else setIndex
+   //else set index to + 1
+
+
+
    //not sure if this is needed, because it SHOULD be at 0 and it SHOULD incrimate to 1
   //  if (index === 0){
   //    setCurrentDate(date [index]);
