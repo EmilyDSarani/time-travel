@@ -1,17 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function App() {
   const [date, setDate] = useState([]);
   const [index, setIndex] = useState(-1)
   const [currentDate, setCurrentDate] = useState('')
-  const [undo, setUndo] = useState('');
-  const [redo, setRedo] = useState(''); 
-  const [didNumberChange, setDidNumberChange] = useState('')
 
 
   //the first option could be to incriment or decrimate the index and then set the currentDate to that index date[index] (will have to do this for both)
 
   //a useEffect that takes then set the currentDate to that index date[index] (keeps track once)
+// useEffect(() => {
+//   //undo 
+//   if (index - 1){
+//     setUndo(index)
+//     //redo
+//   } else if (index + 1) {
+//     setRedo(index)
+//   }
+//   return currentDate[index]
+// })
+
+const handleUndo = () =>{
+ setIndex(index - 1) 
+ setCurrentDate(date[index])
+
+}
+
+const handleRedo = () =>{
+  setIndex(index + 1) 
+  setCurrentDate(date[index])
+ 
+ }
 
  
 //ideally, I would like this to take in the name and set the date to the value and throw an error if nothing has been selected
@@ -31,6 +50,7 @@ export default function App() {
   //   }
     
   // }
+
 
   const handleSaveDate = (e) =>{
     //setting the name and value to the e.target
@@ -55,8 +75,8 @@ export default function App() {
 
   return (
     <div>
-      <button> Undo </button>
-      <button> Redo </button>
+      <button onClick={handleUndo}> Undo </button>
+      <button onClick={handleRedo}> Redo </button>
       <input 
       type="date"
       name="date"
